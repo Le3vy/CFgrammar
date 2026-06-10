@@ -1,0 +1,20 @@
+<div class="cfgrammar-container">
+
+    <h3>{{inputstring}}</h3>
+
+    <div id="grammar-rules-container"></div>
+
+    <button type="button" id="add-rule-btn" class="btn btn-secondary">
+        + {{#str}}addrule, mod_cykalgorithm{{/str}}
+    </button>
+
+    <template id="grammar-rule-template">
+        <div class="grammar-rule-row" style="margin-bottom: 8px;">
+            <input type="text" name="lhs[]" size="2" placeholder="LHS">
+            <span>→</span>
+            <input type="text" name="rhs[]" size="20" placeholder="RHS">
+            <button type="button" class="delete-rule-btn btn btn-danger">X</button>
+        </div>
+    </template>
+
+</div>

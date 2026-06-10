@@ -5,8 +5,9 @@
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true"/>
                 <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true"/>
-                <FIELD NAME="grammar" TYPE="text" NOTNULL="true"/>
                 <FIELD NAME="inputstring" TYPE="char" LENGTH="255" NOTNULL="true"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
+                <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false"/>
             </FIELDS>
             <KEYS>
                 <KEY NAME="primary" TYPE="primary" FIELDS="id"/>

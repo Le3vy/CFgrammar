@@ -1,6 +1,17 @@
 <?php
 
-$string['pluginname'] = 'CF_Grammar';
-$string['modulename'] = 'CF_Grammar';
+$string['pluginname'] = 'CF Grammar';
+$string['modulename'] = 'CF Grammar';
 $string['modulename_help'] = 'placeholder';
-$string['modulenameplural'] = 'CF_Grammars';
+$string['modulenameplural'] = 'CF Grammars';
+
+$string['addrule'] = 'Add rule';
+
+$string['cfgrammar:addinstance'] = 'Add a new CF Grammar activity';
+$string['cfgrammar:view'] = 'View CF Grammar activity';
+
+$string['lhs'] = 'Left-hand side';
+$string['rhs'] = 'Right-hand side';
+
+$string['name'] = 'Activity name';
+$string['inputstring'] = 'Input string';
