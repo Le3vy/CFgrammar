@@ -16,8 +16,13 @@ $PAGE->set_title(format_string($cfg->name));
 $PAGE->set_heading(format_string($course->fullname));
 
 $PAGE->requires->js_call_amd('mod_cfgrammar/grammar', 'init');
+$PAGE->requires->js_call_amd('mod_cfgrammar/student', 'init', [$cm->id]);
 
 echo $OUTPUT->header();
+
+echo $OUTPUT->render_from_template('mod_cfgrammar/student', [
+    'inputstring' => $moduleinstance->inputstring
+]);
 
 echo $OUTPUT->render_from_template('mod_cfgrammar/grammar', [
     'inputstring' => $moduleinstance->inputstring

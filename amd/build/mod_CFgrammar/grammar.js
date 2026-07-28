@@ -1,4 +1,5 @@
 define('mod_cfgrammar/grammar', [], function() {
+    
     function init() {
         const container = document.getElementById('grammar-rules-container');
         const template = document.getElementById('grammar-rule-template');

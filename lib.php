@@ -1,6 +1,7 @@
 <?php
 
 defined('MOODLE_INTERNAL') || die();
+require_once(__DIR__ . '/classes/local/generator.php');
 
 /**
  * Add a new CF Grammar activity instance.
@@ -12,6 +13,20 @@ function cfgrammar_add_instance($data)
     $data->timecreated = time();
 
     $id = $DB->insert_record('cfgrammar', $data);
+
+    $rules = cfgrammar_generator::generate_random_grammar(
+        $data->minnonterminal,
+        $data->maxnonterminal,
+        $data->terminalnumber
+    );
+
+    foreach ($rules as $rule) {
+        $DB->insert_record('cfgrammar_rules', (object)[
+            'cfgrammarid' => $id,
+            'lhs' => $rule['lhs'],
+            'rhs' => $rule['rhs']
+        ]);
+    }
 
     return $id;
 }
