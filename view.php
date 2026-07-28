@@ -15,7 +15,7 @@ $PAGE->set_url('/mod/cfgrammar/view.php', ['id' => $cm->id]);
 $PAGE->set_title(format_string($cfg->name));
 $PAGE->set_heading(format_string($course->fullname));
 
-$PAGE->requires->js_call_amd('mod_cfgrammar/grammar', 'init');
+$PAGE->requires->js_call_amd('mod_cfgrammar/grammar', 'init', [$moduleinstance->id]);
 $PAGE->requires->js_call_amd('mod_cfgrammar/student', 'init', [$cm->id]);
 
 echo $OUTPUT->header();

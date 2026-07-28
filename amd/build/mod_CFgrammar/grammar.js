@@ -1,11 +1,10 @@
 define('mod_cfgrammar/grammar', [], function() {
-    
-    function init() {
+
+    function init(cfgrammarid) {
         const container = document.getElementById('grammar-rules-container');
         const template = document.getElementById('grammar-rule-template');
-        const addBtn = document.getElementById('add-rule-btn');
 
-        if (!container || !template || !addBtn) {
+        if (!container || !template) {
             console.error('Grammar UI elements missing.');
             return;
         }
@@ -13,20 +12,24 @@ define('mod_cfgrammar/grammar', [], function() {
         function addRuleRow(lhs = '', rhs = '') {
             const clone = template.content.cloneNode(true);
             const row = clone.querySelector('.grammar-rule-row');
-            const lhsInput = row.querySelector('input[name="lhs[]"]');
-            const rhsInput = row.querySelector('input[name="rhs[]"]');
-            lhsInput.value = lhs;
-            rhsInput.value = rhs;
-            row.querySelector('.delete-rule-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                row.remove();
-            });
             container.appendChild(row);
         }
 
-        addRuleRow();
-        addBtn.addEventListener('click', () => addRuleRow());
+        // Fetch rule count from PHP
+        const url = M.cfg.wwwroot + '/mod/cfgrammar/getrulecount.php?cfgrammarid=' + cfgrammarid;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const count = data.rulecount || 0;
+
+                for (let i = 0; i < count; i++) {
+                    addRuleRow();
+                }
+            })
+            .catch(err => {
+                console.error('Could not load rule count', err);
+            });
     }
 
     return { init: init };
