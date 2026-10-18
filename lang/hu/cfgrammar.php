@@ -14,9 +14,11 @@ $string['lhs'] = 'Baloldali';
 $string['rhs'] = 'Jobboldali';
 
 $string['name'] = 'Feladat neve';
-$string['inputstring'] = 'Szó';
+$string['inputstring'] = 'Bemeneti szó';
 
-$string['maxnonterminal'] = 'Maximum number of terminals';
-$string['minnonterminal'] = 'Minimum number of terminals';
-$string['inputstringlength'] = 'Length of the input string';
-$string['terminalnumber'] = 'Number of terminals';
+$string['maxnonterminal'] = 'Maximum száma a nemterminálisoknak';
+$string['minnonterminal'] = 'Minimum száma a nemterminálisoknak';
+$string['inputstringlength'] = 'A bemeneti szó hossza';
+$string['terminalnumber'] = 'Terminálisok száma';
+
+$string['pluginadministration'] = '';

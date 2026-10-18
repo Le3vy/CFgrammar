@@ -16,7 +16,9 @@ $string['rhs'] = 'Right-hand side';
 $string['name'] = 'Activity name';
 $string['inputstring'] = 'Input string';
 
-$string['maxnonterminal'] = 'Maximum number of terminals';
-$string['minnonterminal'] = 'Minimum number of terminals';
+$string['maxnonterminal'] = 'Maximum number of non-terminals';
+$string['minnonterminal'] = 'Minimum number of non-terminals';
 $string['inputstringlength'] = 'Length of the input string';
 $string['terminalnumber'] = 'Number of terminals';
+
+$string['pluginadministration'] = '';

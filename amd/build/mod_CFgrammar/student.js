@@ -9,7 +9,7 @@ define('mod_cfgrammar/student', [], function() {
         }
 
         btn.addEventListener('click', () => {
-            const url = M.cfg.wwwroot + '/mod/cfgrammar/generate.php?id=' + cmid;
+            const url = M.cfg.wwwroot + '/mod/cfgrammar/generateCFG.php?id=' + cmid;
 
             fetch(url)
                 .then(response => response.json())

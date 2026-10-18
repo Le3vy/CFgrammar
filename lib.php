@@ -14,7 +14,7 @@ function cfgrammar_add_instance($data)
 
     $id = $DB->insert_record('cfgrammar', $data);
 
-    $rules = cfgrammar_generator::generate_random_grammar(
+    $rules = cfgrammar_generator::generate_random_cfg_grammar(
         $data->minnonterminal,
         $data->maxnonterminal,
         $data->terminalnumber
@@ -28,6 +28,20 @@ function cfgrammar_add_instance($data)
         ]);
     }
 
+    $dbrules = $DB->get_records('cfgrammar_rules', ['cfgrammarid' => $id], '', 'id,cfgrammarid,lhs,rhs');
+
+    $maxlen = isset($data->inputstringlength) ? (int)$data->inputstringlength : 10;
+    $word = cfgrammar_generator::generate_cyk_word($dbrules, 'S', $maxlen);
+
+    if (empty($word) || $word === 'error') {
+        $word = 'a';
+    }
+
+    $update = new stdClass();
+    $update->id = $id;
+    $update->inputstring = $word;
+    $update->timemodified = time();
+    $DB->update_record('cfgrammar', $update);
     return $id;
 }
 
@@ -57,6 +71,8 @@ function cfgrammar_delete_instance($id)
     if (!$record = $DB->get_record('cfgrammar', ['id' => $id])) {
         return false;
     }
+
+        $DB->delete_records('cfgrammar_rules', ['cfgrammarid' => $id]);
 
     return $DB->delete_records('cfgrammar', ['id' => $id]);
 }

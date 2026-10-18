@@ -10,7 +10,7 @@ $rules = $DB->get_records('cfgrammar_rules', ['cfgrammarid' => $cm->instance]);
 
 require_once(__DIR__ . '/classes/local/generator.php');
 
-$word = cfgrammar_generator::generate_words(
+$word = cfgrammar_generator::generate_cfg_words(
     $rules,
     'S',
     $moduleinstance->inputstringlength

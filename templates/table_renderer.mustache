@@ -1,0 +1,28 @@
+<div class="cyk-rules-list">
+    {{#rules}}
+        <div class="cyk-rule">{{.}}</div>
+    {{/rules}}
+</div>
+
+<div class="cyk-input-row">
+    {{#symbols}}
+        <span class="cyk-symbol">{{.}}</span>
+    {{/symbols}}
+</div>
+
+<table class="cyk-table">
+    {{#rows}}
+    <tr>
+        {{#cells}}
+        <td>
+            <select name="{{id}}" class="cyk-cell">
+                <option value=""></option>
+                {{#lhrules}}
+                    <option value="{{.}}">{{.}}</option>
+                {{/lhrules}}
+            </select>
+        </td>
+        {{/cells}}
+    </tr>
+    {{/rows}}
+</table>
