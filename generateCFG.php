@@ -1,6 +1,7 @@
 <?php
 
 require('../../config.php');
+require_login();
 
 $id = required_param('id', PARAM_INT);
 
@@ -16,5 +17,9 @@ $word = cfgrammar_generator::generate_cfg_words(
     $moduleinstance->inputstringlength
 );
 
-echo json_encode(['word' => $word]);
-die;
+header('Content-Type: application/json');
+
+echo json_encode([
+    'word' => $word
+]);
+exit;

@@ -3,7 +3,6 @@
 require('../../config.php');
 require_once($CFG->dirroot . '/mod/cfgrammar/classes/output/table_renderer.php');
 
-
 $cmid = required_param('id', PARAM_INT);
 
 $cm = get_coursemodule_from_id('cfgrammar', $cmid, 0, false, MUST_EXIST);
@@ -44,7 +43,6 @@ echo $OUTPUT->render_from_template('mod_cfgrammar/student', [
 echo $OUTPUT->render_from_template('mod_cfgrammar/grammar', [
     'inputstring' => $moduleinstance->inputstring
 ]);
-
 
 $table = new \mod_cfgrammar\output\table_renderer(
     $cyk->inputstring,
