@@ -1,4 +1,8 @@
 <?php
+/**
+ *
+ * @package mod_cfgrammar
+ */
 
 require('../../config.php');
 require_login();
@@ -20,6 +24,6 @@ $word = cfgrammar_generator::generate_cfg_words(
 header('Content-Type: application/json');
 
 echo json_encode([
-    'word' => $word
+    'word' => $word,
 ]);
 exit;

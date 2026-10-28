@@ -1,4 +1,8 @@
 <?php
+/**
+ *
+ * @package mod_cfgrammar
+ */
 
 require('../../config.php');
 require_once($CFG->dirroot . '/mod/cfgrammar/classes/output/table_renderer.php');
@@ -37,11 +41,11 @@ $PAGE->requires->js_call_amd('mod_cfgrammar/student', 'init', [$cm->id]);
 echo $OUTPUT->header();
 
 echo $OUTPUT->render_from_template('mod_cfgrammar/student', [
-    'inputstring' => $moduleinstance->inputstring
+    'inputstring' => $moduleinstance->inputstring,
 ]);
 
 echo $OUTPUT->render_from_template('mod_cfgrammar/grammar', [
-    'inputstring' => $moduleinstance->inputstring
+    'inputstring' => $moduleinstance->inputstring,
 ]);
 
 $table = new \mod_cfgrammar\output\table_renderer(

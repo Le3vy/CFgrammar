@@ -3,10 +3,16 @@
 defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . '/course/moodleform_mod.php');
 
+/**
+ *
+ * @package mod_cfgrammar
+ */
 class mod_cfgrammar_mod_form extends moodleform_mod
 {
-    public function definition()
-    {
+    /**
+     *
+     */
+    public function definition() {
         global $PAGE;
 
         $mform = $this->_form;

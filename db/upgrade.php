@@ -1,7 +1,9 @@
 <?php
 
-defined('MOODLE_INTERNAL') || die();
-
+/**
+ *
+ * @package mod_cfgrammar
+ */
 function xmldb_cfgrammar_upgrade($oldversion) {
 
     global $DB;
@@ -9,7 +11,6 @@ function xmldb_cfgrammar_upgrade($oldversion) {
     $dbman = $DB->get_manager();
 
     if ($oldversion < 2026101701) {
-
         $table = new xmldb_table('cfgrammar');
 
         $fields = [

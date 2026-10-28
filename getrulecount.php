@@ -1,6 +1,11 @@
 <?php
+/**
+ *
+ * @package mod_cfgrammar
+ */
 
 require('../../config.php');
+require_login();
 
 $cfgrammarid = required_param('cfgrammarid', PARAM_INT);
 

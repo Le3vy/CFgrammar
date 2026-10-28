@@ -1,13 +1,16 @@
 <?php
-
+/**
+ *
+ * @package mod_cfgrammar
+ */
 defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__ . '/classes/local/generator.php');
 
 /**
  * Add a new CF Grammar activity instance.
+ * @package mod_cfgrammar
  */
-function cfgrammar_add_instance($data)
-{
+function cfgrammar_add_instance($data) {
     global $DB;
 
     $data->timecreated = time();
@@ -24,7 +27,7 @@ function cfgrammar_add_instance($data)
         $DB->insert_record('cfgrammar_rules', (object)[
             'cfgrammarid' => $id,
             'lhs' => $rule['lhs'],
-            'rhs' => $rule['rhs']
+            'rhs' => $rule['rhs'],
         ]);
     }
 
@@ -47,9 +50,9 @@ function cfgrammar_add_instance($data)
 
 /**
  * Update an existing CF Grammar activity instance.
+ * @package mod_cfgrammar
  */
-function cfgrammar_update_instance($data)
-{
+function cfgrammar_update_instance($data) {
     global $DB;
 
     $data->timemodified = time();
@@ -60,12 +63,11 @@ function cfgrammar_update_instance($data)
     return true;
 }
 
-
 /**
  * Delete a CF Grammar activity instance.
+ * @package mod_cfgrammar
  */
-function cfgrammar_delete_instance($id)
-{
+function cfgrammar_delete_instance($id) {
     global $DB;
 
     if (!$record = $DB->get_record('cfgrammar', ['id' => $id])) {
